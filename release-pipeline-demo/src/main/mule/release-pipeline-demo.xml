@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="719c7701-bc3f-4f71-8df7-770c857cca5f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="release-pipeline-demoFlow" doc:id="17847581-9c51-4d4f-8973-998f531280df" >
+		<http:listener doc:name="Listener" doc:id="bc3217c2-01d7-4422-8067-69240eba540c" config-ref="HTTP_Listener_config" path="/release"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c7fc8b33-3d9b-4e3e-88df-e754f1f63b50" message="release pipeline demo"/>
+	</flow>
+</mule>
